@@ -1,27 +1,40 @@
-#include <iostream>
-#include "Punto.h"
-using namespace std;
+/* Construir un programa para una competencia de atletiscmo, el programa
+debe gestionar una serie de atletas caracterizados por su numero de atleta,
+nombre y tiempo de carrera, al final el programa debe mostrar los datos del 
+atleta ganador de la carrera*/
 
-//Creacion de objetos:
+#include <iostream>
+#include "atleta.h"
+use namespace std;
 
 int main(int argc, char** argv) {
-	//clase nombre(valores de los atributos);
-	Punto p1(2,1); //creacion de objeto estatico.
 	
-	//usar los metodos:
-	//para usar el valor de un objeto estatico se usa .
-	cout<<"El valor de X es:"<<p1.getX()<<endl;
-	cout<<"El valor de Y es:"<<p1.getY()<<endl;
+	Atleta* arrAtletas;
+	int nAtletas, numAtleta;
+	string nombre;
+	float tiempoCarrera;
 	
-	Punto* p2 = new Punto(); //creacion de objeto dinamico.
+	cout<<"Ingrese el numero de atletas a competir: ";
+	cin<<nAtletas;
 	
-	//para establecer el valor de un objetivo dinamico se usa ->
-	p2->setX(5); 
-	p2>setY(3);
+	arrAtletas = new Atletas[nAtletas];
 	
-	cout<<"El valor de X es: "<<p2->getX()<<endl;
-	cout<<"El valor de Y es: "<<p2->getY()<<endl;
+	for (int i = 0; i < nAtletas; i++){
+		cin.ignore();
+		cout<<"Numero de atleta: ";
+		cin<<numAtleta;
+		cout<<"Nombre de atletla: ";
+		getline(cin, nombre);
+		cout<<"Tiempo de carrera: ";
+		cin<<tiempoCarrera;
+		
+		//inicializar arreglo con el constructor:
+		arrAtletas[i] = Atleta(numAtleta, nombre, tiempoCarrera);
+	}
 	
+	indiceAtleta = Atleta::indiceGanador(arrAtletas, numAtletas);
+	cout<<"El atleta ganador es: "<<endl;
+	(arrAtletas+indiceAtleta)->mostrarDatos();
 	
 	
 	return 0;
