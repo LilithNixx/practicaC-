@@ -1,41 +1,49 @@
-/* Construir un programa para una competencia de atletiscmo, el programa
-debe gestionar una serie de atletas caracterizados por su numero de atleta,
-nombre y tiempo de carrera, al final el programa debe mostrar los datos del 
-atleta ganador de la carrera*/
+/*definir una plantilla dentro de un archivo de cabecera llamado "intercambio.h"
+que úeda intercambiar el valor de dos elementos del mismo tipo.*/
 
 #include <iostream>
-#include "atleta.h"
-use namespace std;
+#include "intercambio.h"
+using namespace std;
 
 int main(int argc, char** argv) {
-	
-	Atleta* arrAtletas;
-	int nAtletas, numAtleta;
-	string nombre;
-	float tiempoCarrera;
-	
-	cout<<"Ingrese el numero de atletas a competir: ";
-	cin<<nAtletas;
-	
-	arrAtletas = new Atletas[nAtletas];
-	
-	for (int i = 0; i < nAtletas; i++){
-		cin.ignore();
-		cout<<"Numero de atleta: ";
-		cin<<numAtleta;
-		cout<<"Nombre de atletla: ";
-		getline(cin, nombre);
-		cout<<"Tiempo de carrera: ";
-		cin<<tiempoCarrera;
+	int dato1, dato2;
+	float datof1, datof2;
+	char datoc1, datoc2;
+	//Itercambiar enteros:
+	cout<<"Ingrese dos numeros enteros: "<<endl;
+	cin>>dato1; cin>>dato2;
+	cout<<"Usted ingreso "<<endl;
+	cout<<"Dato1: "<<dato1<<endl;
+	cout<<"Dato2: "<<dato2<<endl;
+	cout<<"\n";
+	intercambio(dato1, dato2);
+	cout<<"Ahora "<<endl;
+	cout<<"Dato1: "<<dato1<<endl;
+	cout<<"Dato2: "<<dato2<<endl;
+	cout<<"\n\n";
+	//Intercambiar flotantes:
+	cout<<"Ingrese dos numeros flotantes: "<<endl;
+	cin>>datof1; cin>>datof2;
+    cout<<"Usted ingreso "<<endl;
+	cout<<"Dato1: "<<datof1<<endl;
+	cout<<"Dato2: \n"<<datof2<<endl;
+	cout<<"\n";
+	intercambio(datof1, datof2);
+    cout<<"Ahora "<<endl;
+	cout<<"Dato1: "<<datof1<<endl;
+	cout<<"Dato2: "<<datof2<<endl;	
+	cout<<"\n\n";
+	//Intercambio de caracteres:
+	cout<<"Ingrese dos caracteres: "<<endl;
+	cin>>datoc1; cin>>datoc2;
+    cout<<"Usted ingreso "<<endl;
+	cout<<"Dato1: "<<datoc1<<endl;
+	cout<<"Dato2: \n"<<datoc2<<endl;
+	cout<<"\n";
+	intercambio(datoc1, datoc2);
+    cout<<"Ahora ";
+	cout<<"Dato1: "<<datoc1<<endl;
+	cout<<"Dato2: "<<datoc2<<endl;	
 		
-		//inicializar arreglo con el constructor:
-		arrAtletas[i] = Atleta(numAtleta, nombre, tiempoCarrera);
-	}
-	
-	indiceAtleta = Atleta::indiceGanador(arrAtletas, numAtletas);
-	cout<<"El atleta ganador es: "<<endl;
-	(arrAtletas+indiceAtleta)->mostrarDatos();
-	
-	
 	return 0;
 }
